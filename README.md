@@ -279,96 +279,6 @@ This modular design allows individual AI features to be developed and tested ind
 
 ---
 
-# My Contribution
-
-## Classroom Activity AI + PDF Export + QA
-
-My role focuses on three areas:
-
-### 1. Classroom Activity Generation
-
-The activity module converts teacher requirements into a practical classroom activity.
-
-```text
-Teacher Requirements
-        |
-        v
-Activity Prompt
-        |
-        v
-       LLM
-        |
-        v
-Structured JSON
-        |
-        v
-Pydantic / Validation
-        |
-        v
-Classroom-Ready Activity
-```
-
-The activity considers:
-
-- Subject
-- Topic
-- Grade
-- Duration
-- Difficulty
-- Class size
-- Learning objective
-- Curriculum context
-
-Example:
-
-```text
-Activity: Photosynthesis Recipe Challenge
-
-Duration: 15 minutes
-Group Size: 4
-
-Objective:
-Identify the inputs and outputs of photosynthesis.
-
-Materials:
-Paper and markers
-
-Assessment:
-Each group explains its diagram.
-```
-
-### 2. Teaching Package PDF Export
-
-The export layer combines structured outputs from the different modules into a teacher-facing package containing items such as:
-
-- Lesson information
-- Learning objectives
-- Lesson plan
-- Explanation
-- Examples
-- Classroom activity
-- Quiz
-- Answer key
-- Sources
-
-The export layer is deterministic and does not require another LLM call.
-
-### 3. QA and Demo Reliability
-
-The end-to-end workflow is tested for:
-
-- Invalid inputs
-- Missing curriculum context
-- Malformed AI responses
-- Missing required fields
-- Invalid durations
-- LLM/API failures
-- PDF export failures
-- Integration problems between modules
-
-The goal is to identify failures before the final product demonstration.
-
----
 
 # Tech Stack
 
@@ -411,7 +321,7 @@ The goal is to identify failures before the final product demonstration.
 
 # Project Structure
 
-A suggested modular structure is:
+A modular structure is:
 
 ```text
 teachmate-ai/
