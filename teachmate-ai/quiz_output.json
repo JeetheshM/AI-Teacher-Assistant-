@@ -1,0 +1,134 @@
+{
+  "quiz": {
+    "title": "Photosynthesis Assessment",
+    "subject": "Science",
+    "topic": "Photosynthesis",
+    "grade": 8,
+    "difficulty": "intermediate",
+    "question_count": 5,
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is the primary green pigment in plant leaves that absorbs light energy for photosynthesis?",
+        "type": "mcq",
+        "difficulty": "intermediate",
+        "bloom_level": "remember",
+        "options": [
+          "Chlorophyll",
+          "Carotene",
+          "Xanthophyll",
+          "Anthocyanin"
+        ],
+        "correct_answer": "Chlorophyll",
+        "explanation": "Chlorophyll is the green pigment in plants that absorbs light energy required to drive the chemical reactions of photosynthesis."
+      },
+      {
+        "id": "q2",
+        "question": "Which statement best describes the role of carbon dioxide in photosynthesis?",
+        "type": "mcq",
+        "difficulty": "intermediate",
+        "bloom_level": "understand",
+        "options": [
+          "It acts as the primary energy source for breaking down water molecules.",
+          "It provides carbon and oxygen atoms needed to synthesize glucose.",
+          "It is released into the atmosphere as a waste gas.",
+          "It is absorbed by roots to transport minerals through the plant."
+        ],
+        "correct_answer": "It provides carbon and oxygen atoms needed to synthesize glucose.",
+        "explanation": "During photosynthesis, plants take in carbon dioxide from the air and combine it with hydrogen from water to create glucose."
+      },
+      {
+        "id": "q3",
+        "question": "Oxygen is released as a by-product during the process of photosynthesis.",
+        "type": "true_false",
+        "difficulty": "intermediate",
+        "bloom_level": "remember",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "Plants split water molecules using light energy, using the hydrogen to build carbohydrates and releasing oxygen into the atmosphere as a by-product."
+      },
+      {
+        "id": "q4",
+        "question": "Photosynthesis can take place at a normal rate in complete darkness as long as the plant receives adequate water and carbon dioxide.",
+        "type": "true_false",
+        "difficulty": "intermediate",
+        "bloom_level": "understand",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Sunlight is necessary because it provides the energy required to convert carbon dioxide and water into glucose. Photosynthesis cannot occur without a light source."
+      },
+      {
+        "id": "q5",
+        "question": "A gardener places a plant inside a sealed glass container where light and water are present, but all carbon dioxide has been removed. Explain what will happen to the plant's ability to perform photosynthesis.",
+        "type": "short_answer",
+        "difficulty": "intermediate",
+        "bloom_level": "apply",
+        "options": [],
+        "correct_answer": "The plant will not be able to perform photosynthesis because carbon dioxide is a required raw material for making glucose. Without carbon dioxide, the plant cannot synthesize food even if light and water are available.",
+        "explanation": "Carbon dioxide is one of the essential reactants in photosynthesis; without it, the chemical reaction to form sugar cannot take place."
+      }
+    ],
+    "sources_used": [
+      {
+        "source": "CBSE_Science.pdf",
+        "page_number": 82
+      }
+    ]
+  },
+  "answer_key": {
+    "quiz_title": "Photosynthesis Assessment",
+    "entries": [
+      {
+        "question_id": "q1",
+        "answer": "Chlorophyll",
+        "explanation": "Chlorophyll is the green pigment in plants that absorbs light energy required to drive the chemical reactions of photosynthesis."
+      },
+      {
+        "question_id": "q2",
+        "answer": "It provides carbon and oxygen atoms needed to synthesize glucose.",
+        "explanation": "During photosynthesis, plants take in carbon dioxide from the air and combine it with hydrogen from water to create glucose."
+      },
+      {
+        "question_id": "q3",
+        "answer": "True",
+        "explanation": "Plants split water molecules using light energy, using the hydrogen to build carbohydrates and releasing oxygen into the atmosphere as a by-product."
+      },
+      {
+        "question_id": "q4",
+        "answer": "False",
+        "explanation": "Sunlight is necessary because it provides the energy required to convert carbon dioxide and water into glucose. Photosynthesis cannot occur without a light source."
+      },
+      {
+        "question_id": "q5",
+        "answer": "The plant will not be able to perform photosynthesis because carbon dioxide is a required raw material for making glucose. Without carbon dioxide, the plant cannot synthesize food even if light and water are available.",
+        "explanation": "Carbon dioxide is one of the essential reactants in photosynthesis; without it, the chemical reaction to form sugar cannot take place."
+      }
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "checks": {
+      "question_count_valid": true,
+      "all_questions_have_text": true,
+      "all_questions_have_type": true,
+      "all_questions_have_answers": true,
+      "all_questions_have_explanations": true,
+      "mcq_has_options": true,
+      "mcq_prefers_four_options": true,
+      "mcq_answers_in_options": true,
+      "no_duplicate_options": true,
+      "no_duplicate_questions": true,
+      "difficulties_valid": true,
+      "bloom_levels_valid": true,
+      "true_false_answers_valid": true
+    },
+    "warnings": [],
+    "errors": []
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "quiz": {
+    "title": "Photosynthesis Assessment",
+    "subject": "Biology",
+    "topic": "Photosynthesis",
+    "grade": 8,
+    "difficulty": "intermediate",
+    "question_count": 3,
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Which organelle in plant leaf cells contains chlorophyll and serves as the site where photosynthesis takes place?",
+        "type": "mcq",
+        "difficulty": "easy",
+        "bloom_level": "remember",
+        "options": [
+          "Mitochondria",
+          "Chloroplast",
+          "Cell wall",
+          "Vacuole"
+        ],
+        "correct_answer": "Chloroplast",
+        "explanation": "Chloroplasts are the specialized organelles in green plant cells that contain chlorophyll and carry out photosynthesis."
+      },
+      {
+        "id": "q2",
+        "question": "Oxygen is released as a by-product during the light reactions of photosynthesis when sunlight splits water molecules.",
+        "type": "true_false",
+        "difficulty": "intermediate",
+        "bloom_level": "understand",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "In the light reactions stage, light energy is used to split water molecules, releasing oxygen gas as a by-product."
+      },
+      {
+        "id": "q3",
+        "question": "A scientist places an aquatic plant under a bright lamp and counts the oxygen bubbles released. When the lamp is moved further away, the number of bubbles decreases. Explain why moving the lamp further away reduces bubble production.",
+        "type": "short_answer",
+        "difficulty": "intermediate",
+        "bloom_level": "apply",
+        "options": [],
+        "correct_answer": "Moving the lamp further away decreases light intensity, which slows down the rate of photosynthesis. Since oxygen is a by-product of photosynthesis, a lower rate results in fewer oxygen bubbles being produced.",
+        "explanation": "Light intensity directly impacts the rate of photosynthesis. Reducing light availability slows down the reaction, leading to less oxygen being produced and released by the plant."
+      }
+    ],
+    "sources_used": [
+      {
+        "source": "sample_science.txt",
+        "page_number": null
+      }
+    ]
+  },
+  "answer_key": {
+    "quiz_title": "Photosynthesis Assessment",
+    "entries": [
+      {
+        "question_id": "q1",
+        "answer": "Chloroplast",
+        "explanation": "Chloroplasts are the specialized organelles in green plant cells that contain chlorophyll and carry out photosynthesis."
+      },
+      {
+        "question_id": "q2",
+        "answer": "True",
+        "explanation": "In the light reactions stage, light energy is used to split water molecules, releasing oxygen gas as a by-product."
+      },
+      {
+        "question_id": "q3",
+        "answer": "Moving the lamp further away decreases light intensity, which slows down the rate of photosynthesis. Since oxygen is a by-product of photosynthesis, a lower rate results in fewer oxygen bubbles being produced.",
+        "explanation": "Light intensity directly impacts the rate of photosynthesis. Reducing light availability slows down the reaction, leading to less oxygen being produced and released by the plant."
+      }
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "checks": {
+      "question_count_valid": true,
+      "all_questions_have_text": true,
+      "all_questions_have_type": true,
+      "all_questions_have_answers": true,
+      "all_questions_have_explanations": true,
+      "mcq_has_options": true,
+      "mcq_prefers_four_options": true,
+      "mcq_answers_in_options": true,
+      "no_duplicate_options": true,
+      "no_duplicate_questions": true,
+      "difficulties_valid": true,
+      "bloom_levels_valid": true,
+      "true_false_answers_valid": true
+    },
+    "warnings": [],
+    "errors": []
+  },
+  "file_info": {
+    "filename": "sample_science.txt",
+    "pages_extracted": 1,
+    "total_chars": 2130
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "title": "Photosynthesis Recipe Challenge",
+    "activity_type": "group",
+    "objective": "Identify and map the biochemical inputs (sunlight, water, carbon dioxide) and outputs (glucose, oxygen) of photosynthesis using a collaborative diagram model.",
+    "duration_minutes": 15,
+    "group_size": 4,
+    "materials": [
+        "Plain A4 or Chart Paper (1 sheet per group)",
+        "Colored markers or highlighters (Green, Blue, Yellow, Red)",
+        "Post-it sticky notes or index cards"
+    ],
+    "setup": "Pre-arrange classroom desks in clusters of 4. Place 1 paper sheet and a marker set on each group table.",
+    "instructions": [
+        "Step 1 (2 mins): In groups of 4, designate roles: 1 Illustrator, 1 Chemical Scribe, 1 Timekeeper, 1 Spokesperson.",
+        "Step 2 (5 mins): Draw a large leaf cross-section in the center of the sheet with green chloroplasts.",
+        "Step 3 (5 mins): Use colored arrows to map incoming inputs (Yellow for Sunlight, Blue for H2O via stem, Grey for CO2 via stomata) and exiting outputs (Red for Glucose, Green for O2).",
+        "Step 4 (3 mins): Complete the quick exit-check summary sentence at the bottom: 'Plants convert ___ and ___ into ___ using ___.'"
+    ],
+    "teacher_role": "Circulate among groups, verify that arrows indicate correct directional flow of reactants vs products, and promptly resolve confusion between oxygen and carbon dioxide.",
+    "student_role": "Collaboratively discuss, assign arrow labels, and reach consensus on the biochemical inputs and outputs.",
+    "expected_outcome": "Each team produces an annotated photosynthesis reaction poster clearly distinguishing reactants from products.",
+    "assessment_method": "30-second rapid-fire group showcase: Spokesperson points to one input and one output and states its source and destination.",
+    "safety_notes": [],
+    "adaptations": [
+        "For students needing support: Provide a scaffolded leaf template with dashed entry/exit arrows.",
+        "For advanced extension: Challenge groups to include the balanced chemical equation (6CO2 + 6H2O -> C6H12O6 + 6O2) along the leaf stem."
+    ],
+    "sources_used": [
+        {
+            "source": "CBSE_Science_Grade8.pdf",
+            "page_number": 82
+        },
+        {
+            "source": "CBSE_Science_Grade8.pdf",
+            "page_number": 84
+        }
+    ]
+}

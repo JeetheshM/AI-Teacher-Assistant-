@@ -1,0 +1,139 @@
+{
+  "quiz": {
+    "title": "Photosynthesis Assessment",
+    "subject": "Science",
+    "topic": "Photosynthesis",
+    "grade": 8,
+    "difficulty": "intermediate",
+    "question_count": 5,
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Which organelle in plant cells contains the pigment chlorophyll and serves as the primary site where photosynthesis occurs?",
+        "type": "mcq",
+        "difficulty": "intermediate",
+        "bloom_level": "remember",
+        "options": [
+          "Mitochondria",
+          "Chloroplast",
+          "Nucleus",
+          "Vacuole"
+        ],
+        "correct_answer": "Chloroplast",
+        "explanation": "Chloroplasts are the specific organelles in plant cells where photosynthesis takes place, containing chlorophyll to absorb light energy."
+      },
+      {
+        "id": "q2",
+        "question": "What primary change occurs to water molecules during the light reactions stage of photosynthesis?",
+        "type": "mcq",
+        "difficulty": "intermediate",
+        "bloom_level": "understand",
+        "options": [
+          "They are combined directly with carbon dioxide to create starch.",
+          "They are split by sunlight energy, releasing oxygen gas.",
+          "They are absorbed by the stomata to lower leaf temperature.",
+          "They are converted directly into glucose without absorbing light."
+        ],
+        "correct_answer": "They are split by sunlight energy, releasing oxygen gas.",
+        "explanation": "During the light reactions in thylakoid membranes, light energy splits water molecules, producing oxygen as a by-product and generating ATP energy."
+      },
+      {
+        "id": "q3",
+        "question": "Stomata are tiny pores located on plant leaves that allow carbon dioxide to be absorbed from the air.",
+        "type": "true_false",
+        "difficulty": "intermediate",
+        "bloom_level": "remember",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "True",
+        "explanation": "Stomata are specialized microscopic openings on leaf surfaces responsible for gas exchange, allowing carbon dioxide to enter for photosynthesis."
+      },
+      {
+        "id": "q4",
+        "question": "The dark reactions (Calvin Cycle) of photosynthesis can only take place during the night when no light is present.",
+        "type": "true_false",
+        "difficulty": "intermediate",
+        "bloom_level": "understand",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correct_answer": "False",
+        "explanation": "Although dark reactions do not directly require light energy to proceed, they rely on ATP produced during the light reactions and can occur during daylight."
+      },
+      {
+        "id": "q5",
+        "question": "A gardener places a healthy plant inside a completely sealed glass jar with plenty of water and sunlight. After several days, the plant stops growing. Explain why the plant stopped growing in terms of photosynthesis.",
+        "type": "short_answer",
+        "difficulty": "intermediate",
+        "bloom_level": "apply",
+        "options": [],
+        "correct_answer": "The plant stopped growing because it depleted the available carbon dioxide inside the sealed jar. Carbon dioxide is a required raw material for photosynthesis, so without a continuous supply, the plant cannot produce glucose needed for growth.",
+        "explanation": "Photosynthesis requires carbon dioxide, water, and light energy. In a closed container, carbon dioxide runs out, preventing further photosynthesis and plant growth."
+      }
+    ],
+    "sources_used": [
+      {
+        "source": "sample_science.txt",
+        "page_number": null
+      }
+    ]
+  },
+  "answer_key": {
+    "quiz_title": "Photosynthesis Assessment",
+    "entries": [
+      {
+        "question_id": "q1",
+        "answer": "Chloroplast",
+        "explanation": "Chloroplasts are the specific organelles in plant cells where photosynthesis takes place, containing chlorophyll to absorb light energy."
+      },
+      {
+        "question_id": "q2",
+        "answer": "They are split by sunlight energy, releasing oxygen gas.",
+        "explanation": "During the light reactions in thylakoid membranes, light energy splits water molecules, producing oxygen as a by-product and generating ATP energy."
+      },
+      {
+        "question_id": "q3",
+        "answer": "True",
+        "explanation": "Stomata are specialized microscopic openings on leaf surfaces responsible for gas exchange, allowing carbon dioxide to enter for photosynthesis."
+      },
+      {
+        "question_id": "q4",
+        "answer": "False",
+        "explanation": "Although dark reactions do not directly require light energy to proceed, they rely on ATP produced during the light reactions and can occur during daylight."
+      },
+      {
+        "question_id": "q5",
+        "answer": "The plant stopped growing because it depleted the available carbon dioxide inside the sealed jar. Carbon dioxide is a required raw material for photosynthesis, so without a continuous supply, the plant cannot produce glucose needed for growth.",
+        "explanation": "Photosynthesis requires carbon dioxide, water, and light energy. In a closed container, carbon dioxide runs out, preventing further photosynthesis and plant growth."
+      }
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "checks": {
+      "question_count_valid": true,
+      "all_questions_have_text": true,
+      "all_questions_have_type": true,
+      "all_questions_have_answers": true,
+      "all_questions_have_explanations": true,
+      "mcq_has_options": true,
+      "mcq_prefers_four_options": true,
+      "mcq_answers_in_options": true,
+      "no_duplicate_options": true,
+      "no_duplicate_questions": true,
+      "difficulties_valid": true,
+      "bloom_levels_valid": true,
+      "true_false_answers_valid": true
+    },
+    "warnings": [],
+    "errors": []
+  },
+  "file_info": {
+    "filename": "sample_science.txt",
+    "pages_extracted": 1,
+    "total_chars": 2130
+  }
+}

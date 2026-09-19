@@ -1,0 +1,70 @@
+{
+    "title": "Photosynthesis Formative Assessment",
+    "difficulty": "intermediate",
+    "question_count": 5,
+    "questions": [
+        {
+            "question": "Which pigment inside plant cells is primarily responsible for absorbing sunlight for photosynthesis?",
+            "type": "mcq",
+            "difficulty": "easy",
+            "bloom_level": "remember",
+            "options": [
+                "Chlorophyll",
+                "Hemoglobin",
+                "Melanin",
+                "Carotenoid"
+            ],
+            "correct_answer": "Chlorophyll",
+            "explanation": "Chlorophyll is the green pigment in chloroplasts that absorbs light energy, primarily blue and red wavelengths."
+        },
+        {
+            "question": "What are the two primary chemical inputs (reactants) needed for photosynthesis?",
+            "type": "mcq",
+            "difficulty": "medium",
+            "bloom_level": "understand",
+            "options": [
+                "Carbon dioxide and Water",
+                "Oxygen and Glucose",
+                "Nitrogen and Water",
+                "Carbon dioxide and Oxygen"
+            ],
+            "correct_answer": "Carbon dioxide and Water",
+            "explanation": "Plants take in carbon dioxide from the air and water from the soil to carry out photosynthesis."
+        },
+        {
+            "question": "Oxygen released into the atmosphere during photosynthesis comes from the splitting of water molecules.",
+            "type": "true_false",
+            "difficulty": "medium",
+            "bloom_level": "understand",
+            "options": [
+                "True",
+                "False"
+            ],
+            "correct_answer": "True",
+            "explanation": "During the light reactions, water (H2O) molecules are split (photolysis), releasing oxygen (O2) gas."
+        },
+        {
+            "question": "If a plant is kept in a sealed transparent box with no carbon dioxide, what will happen to its glucose production?",
+            "type": "mcq",
+            "difficulty": "hard",
+            "bloom_level": "analyze",
+            "options": [
+                "Glucose production will stop because carbon is a necessary building block.",
+                "Glucose production will double because light is unobstructed.",
+                "Glucose production will remain unchanged by using nitrogen instead.",
+                "The plant will immediately produce water."
+            ],
+            "correct_answer": "Glucose production will stop because carbon is a necessary building block.",
+            "explanation": "Carbon dioxide provides the carbon atoms needed to synthesize glucose (C6H12O6). Without CO2, sugar synthesis halts."
+        },
+        {
+            "question": "Name the microscopic pores on the surface of leaves through which gases like carbon dioxide and oxygen enter and exit.",
+            "type": "short_answer",
+            "difficulty": "medium",
+            "bloom_level": "remember",
+            "options": [],
+            "correct_answer": "Stomata (or Stoma)",
+            "explanation": "Stomata are regulated microscopic pores that facilitate gas exchange between plant tissues and the atmosphere."
+        }
+    ]
+}

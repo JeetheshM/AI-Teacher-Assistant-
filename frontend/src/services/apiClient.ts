@@ -270,6 +270,29 @@ class ApiClient {
   }
 
   /**
+   * List all saved lessons from Supabase (GET /api/lessons/)
+   */
+  public async getLessons(): Promise<{ id: string; title: string; subject: string; topic: string; grade: number; difficulty: string; status: string; created_at: string }[]> {
+    try {
+      const res = await fetch(`${BASE_URL}/lessons/`, { method: 'GET' });
+      if (!res.ok) return [];
+      return await res.json();
+    } catch {
+      return [];
+    }
+  }
+
+  /**
+   * Get a saved lesson by ID from Supabase (GET /api/lessons/{lesson_id})
+   */
+  public async getLesson(lessonId: string, req?: Partial<LessonGenerationRequest>): Promise<LessonPlan> {
+    const res = await fetch(`${BASE_URL}/lessons/${lessonId}`, { method: 'GET' });
+    if (!res.ok) throw new Error(`Lesson ${lessonId} not found`);
+    const data = await res.json();
+    return this.normalizeLesson(data, (req || {}) as LessonGenerationRequest);
+  }
+
+  /**
    * Trigger PDF Export (POST or GET /api/lessons/{lesson_id}/export)
    */
   public async exportLessonPdf(lessonId: string | number, lessonData: LessonPlan): Promise<{ success: boolean; blob?: Blob; url?: string }> {

@@ -1,0 +1,51 @@
+Photosynthesis - Grade 8 Science Notes
+
+Chapter 5: How Plants Make Food
+
+Photosynthesis is the process by which green plants manufacture their own food using sunlight energy. It is one of the most important biological processes on Earth.
+
+RAW MATERIALS NEEDED:
+- Carbon dioxide (CO2) absorbed from the air through tiny pores called stomata
+- Water (H2O) absorbed from the soil through the roots
+- Sunlight energy captured by the green pigment called chlorophyll
+
+WHERE IT HAPPENS:
+Photosynthesis takes place in the chloroplasts found in the cells of green leaves. Chloroplasts contain chlorophyll, which gives plants their green color and is responsible for absorbing light energy.
+
+THE CHEMICAL PROCESS:
+6CO2 + 6H2O + light energy --> C6H12O6 (glucose) + 6O2
+
+In simple terms: Carbon dioxide plus water, in the presence of sunlight and chlorophyll, produces glucose and oxygen.
+
+PRODUCTS OF PHOTOSYNTHESIS:
+1. Glucose - stored as food (starch) and used for growth and energy
+2. Oxygen - released into the atmosphere as a by-product
+
+TWO MAIN STAGES:
+1. Light Reactions (in the thylakoid membranes)
+   - Sunlight splits water molecules
+   - Oxygen is released
+   - Energy is stored as ATP
+
+2. Dark Reactions / Calvin Cycle (in the stroma)
+   - CO2 is fixed into glucose using the stored ATP
+   - Does not directly require light
+
+FACTORS AFFECTING THE RATE OF PHOTOSYNTHESIS:
+- Light intensity: More light = faster rate (up to a saturation point)
+- Carbon dioxide concentration: More CO2 = faster rate
+- Temperature: Optimal range is 25-35 degrees Celsius
+- Water availability: Lack of water slows photosynthesis
+
+IMPORTANCE OF PHOTOSYNTHESIS:
+- Provides food for plants and all organisms that eat plants
+- Produces oxygen that all living things need to breathe
+- Removes carbon dioxide from the atmosphere
+- Forms the base of almost all food chains on Earth
+
+KEY VOCABULARY:
+- Chlorophyll: Green pigment that absorbs light
+- Stomata: Tiny pores on leaves for gas exchange
+- Chloroplast: Organelle where photosynthesis occurs
+- Autotroph: An organism that makes its own food
+- Heterotroph: An organism that cannot make its own food
