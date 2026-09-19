@@ -4,6 +4,7 @@ TeachMate AI - Person 2 (Lesson Planner + Simplification AI).
 """
 
 import json
+import re
 from typing import Any, Dict, Optional, Protocol, Type, TypeVar
 from pydantic import BaseModel
 from backend.models.lesson_models import (
@@ -186,30 +187,72 @@ class MockLLMService:
         elif "fractions" in lower_prompt:
             topic = "Fractions"
 
+        count_match = re.search(r"generate exactly (\d+)", lower_prompt)
+        question_count = int(count_match.group(1)) if count_match else 2
+        question_templates = [
+            (
+                f"Which statement best describes {topic}?",
+                "mcq",
+                "It is the main process being studied in this lesson.",
+                [
+                    "It is the main process being studied in this lesson.",
+                    "It is unrelated to the topic.",
+                    "Only the teacher should know it.",
+                    "It is a random fact with no learning value.",
+                ],
+                "understand",
+            ),
+            (
+                f"What is one key idea students should remember about {topic}?",
+                "short_answer",
+                "The main idea is the core concept or process being taught.",
+                [],
+                "remember",
+            ),
+            (
+                f"Which input is important when learning about {topic}?",
+                "mcq",
+                "The conditions and materials involved in the process.",
+                [
+                    "The conditions and materials involved in the process.",
+                    "An unrelated classroom rule.",
+                    "A random number with no context.",
+                    "A topic from a different subject.",
+                ],
+                "understand",
+            ),
+            (
+                f"How can students apply their understanding of {topic}?",
+                "short_answer",
+                "Students can explain the process using a relevant example.",
+                [],
+                "apply",
+            ),
+            (
+                f"What should students compare when studying {topic}?",
+                "mcq",
+                "The key inputs, steps, and outcomes of the process.",
+                [
+                    "The key inputs, steps, and outcomes of the process.",
+                    "Only the page number of the textbook.",
+                    "Unrelated facts from another lesson.",
+                    "The classroom seating arrangement.",
+                ],
+                "analyze",
+            ),
+        ]
+        questions = []
+        for question, question_type, correct_answer, options, bloom_level in question_templates[:question_count]:
+            questions.append({
+                "question": question,
+                "type": question_type,
+                "difficulty": "intermediate",
+                "bloom_level": bloom_level,
+                "options": options,
+                "correct_answer": correct_answer,
+                "explanation": f"This checks understanding of {topic}.",
+            })
+
         return json.dumps({
-            "questions": [
-                {
-                    "question": f"Which statement best describes {topic}?",
-                    "type": "mcq",
-                    "difficulty": "intermediate",
-                    "bloom_level": "understand",
-                    "options": [
-                        "It is the main process being studied in this lesson.",
-                        "It is unrelated to the topic.",
-                        "Only the teacher should know it.",
-                        "It is a random fact with no learning value."
-                    ],
-                    "correct_answer": "It is the main process being studied in this lesson.",
-                    "explanation": f"This question checks understanding of the main concept of {topic}."
-                },
-                {
-                    "question": f"What is one key idea students should remember about {topic}?",
-                    "type": "short_answer",
-                    "difficulty": "easy",
-                    "bloom_level": "remember",
-                    "options": [],
-                    "correct_answer": "The main idea is the core concept or process being taught.",
-                    "explanation": "Short-answer questions check recall of the essential concept."
-                }
-            ]
+            "questions": questions
         })

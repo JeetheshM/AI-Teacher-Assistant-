@@ -18,8 +18,7 @@ class EmbeddingService:
                 if not api_key:
                     raise EmbeddingError("No GEMINI_API_KEY found")
                 self.model = genai.Client(api_key=api_key)
-                # use text-embedding-004 for text embeddings
-                self.model_name = "text-embedding-004"
+                self.model_name = os.getenv("EMBEDDING_MODEL", "text-embedding-004")
             except ImportError:
                 raise EmbeddingError("google-genai not installed")
             except Exception as e:

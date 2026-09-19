@@ -23,6 +23,14 @@ try:
     quiz_service = QuizService(GeminiLLMService())
 except Exception:
     quiz_service = QuizService(MockLLMService())
+fallback_quiz_service = QuizService(MockLLMService())
+
+
+async def _generate_quiz(request: QuizGenerationRequest):
+    try:
+        return await quiz_service.generate_quiz(request)
+    except LLMResponseError:
+        return await fallback_quiz_service.generate_quiz(request)
 
 
 def _save_quiz_to_db(db: Session, quiz_result, validation, lesson_id: Optional[str] = None) -> str:
@@ -73,7 +81,7 @@ async def generate_quiz(
     db: Session = Depends(get_db),
 ):
     try:
-        quiz, validation = await quiz_service.generate_quiz(request)
+        quiz, validation = await _generate_quiz(request)
         answer_key = generate_answer_key(quiz)
 
         # Save to Supabase
@@ -175,7 +183,7 @@ async def generate_quiz_from_file(
         curriculum_context=curriculum_context,
     )
 
-    quiz, validation = await quiz_service.generate_quiz(req)
+    quiz, validation = await _generate_quiz(req)
     answer_key = generate_answer_key(quiz)
     quiz_id = _save_quiz_to_db(db, quiz, validation)
 

@@ -23,14 +23,14 @@ except ImportError:
 class GeminiLLMService:
     """Wraps google-genai for use with QuizService."""
 
-    def __init__(self, model_name: str = "gemini-1.5-flash") -> None:
+    def __init__(self, model_name: str | None = None) -> None:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
         if not api_key:
             raise RuntimeError(
                 "GEMINI_API_KEY environment variable is not set. Add it to your .env file."
             )
 
-        self._model_name = model_name
+        self._model_name = model_name or os.getenv("LLM_MODEL", "gemini-3.6-flash")
 
         if _USING_NEW_SDK:
             self._client = genai.Client(api_key=api_key)
