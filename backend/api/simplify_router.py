@@ -14,11 +14,16 @@ from backend.models.lesson_models import (
 )
 from backend.models.core import Material
 from backend.mocks.mock_llm_service import MockLLMService
+from backend.services.gemini_llm_service import GeminiLLMService
 from backend.services.simplification_service import SimplificationService
 
 
 router = APIRouter(prefix="/api/simplify", tags=["Simplification"])
-_simplification_service = SimplificationService(MockLLMService())
+
+try:
+    _simplification_service = SimplificationService(GeminiLLMService())
+except Exception:
+    _simplification_service = SimplificationService(MockLLMService())
 
 
 @router.post(

@@ -17,10 +17,16 @@ from backend.models.lesson_models import (
 )
 from backend.models.core import Lesson, Material, GenerationLog
 from backend.mocks.mock_llm_service import MockLLMService
+from backend.services.gemini_llm_service import GeminiLLMService
 from backend.services.lesson_service import LessonService
 
 router = APIRouter(prefix="/api/lessons", tags=["Lessons"])
-lesson_service = LessonService(MockLLMService())
+
+try:
+    lesson_service = LessonService(GeminiLLMService())
+except Exception:
+    lesson_service = LessonService(MockLLMService())
+
 
 
 @router.post(
@@ -34,6 +40,25 @@ async def generate_lesson_endpoint(
 ):
     start = time.time()
     try:
+        if getattr(request, "document_id", None):
+            from backend.models.rag_models import RetrievalRequest
+            from backend.services.rag_service import global_rag_service
+            
+            retrieval_req = RetrievalRequest(
+                document_id=request.document_id,
+                subject=request.subject,
+                topic=request.topic,
+                grade=request.grade,
+                learning_objective=request.learning_objective
+            )
+            # Fetch context from vector store
+            context = await global_rag_service.get_curriculum_context(retrieval_req)
+            if context:
+                from backend.models.lesson_models import CurriculumChunk
+                request.curriculum_context = [
+                    CurriculumChunk(**c) for c in context
+                ]
+
         result: LessonGenerationResponse = await lesson_service.generate_lesson(request)
     except LessonAIError as err:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(err))

@@ -69,3 +69,29 @@ class GeminiLLMService:
                 lambda: self._model.generate_content(prompt)
             )
             return response.text
+
+    async def generate(self, prompt: str, **kwargs) -> str:
+        """Alias for generate_text for ActivityService compatibility."""
+        return await self.generate_text(prompt)
+
+    async def generate_structured(self, prompt: str, response_model) -> any:
+        """Generate and parse structured Pydantic response for Lesson/Simplify services."""
+        import json
+        text = await self.generate_text(prompt)
+        
+        text = text.strip()
+        # Clean JSON fences if present
+        import re
+        fence_match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", text, re.IGNORECASE)
+        if fence_match:
+            text = fence_match.group(1).strip()
+        else:
+            brace_match = re.search(r"(\{[\s\S]*\})", text)
+            if brace_match:
+                text = brace_match.group(1).strip()
+                
+        try:
+            data = json.loads(text)
+            return response_model(**data)
+        except Exception as e:
+            raise RuntimeError(f"Failed to parse LLM structured output: {e}\nRaw output: {text}") from e

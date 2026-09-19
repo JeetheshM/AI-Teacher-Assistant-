@@ -9,8 +9,17 @@ from typing import List, Optional
 
 from backend.database.db import get_db
 from backend.models.core import Material
+from backend.mocks.mock_llm_service import MockLLMService
+from backend.services.gemini_llm_service import GeminiLLMService
+from backend.services.activity_service import ActivityService
+from backend.models.activity_models import ActivityGenerationRequest
 
 router = APIRouter()
+
+try:
+    _activity_service = ActivityService(GeminiLLMService())
+except Exception:
+    _activity_service = ActivityService(MockLLMService())
 
 
 class ActivityRequest(BaseModel):
@@ -23,40 +32,17 @@ class ActivityRequest(BaseModel):
     lesson_id: Optional[str] = Field(default=None, description="Link activity to an existing lesson")
 
 
-class ActivityResponse(BaseModel):
-    title: str
-    objective: str
-    duration_minutes: int
-    group_size: int
-    materials: List[str]
-    instructions: List[str]
-    teacher_role: str
-    expected_outcome: str
-    assessment_method: str
-
-
-@router.post("/generate", response_model=ActivityResponse)
-def generate_activity(request: ActivityRequest, db: Session = Depends(get_db)):
-    activity = ActivityResponse(
-        title=f"Interactive {request.topic} Exploration",
-        objective=f"Hands-on activity for grade {request.grade} students to understand {request.topic}.",
+@router.post("/generate", response_model=dict)
+async def generate_activity(request: ActivityRequest, db: Session = Depends(get_db)):
+    req = ActivityGenerationRequest(
+        subject=request.subject,
+        topic=request.topic,
+        grade=request.grade,
         duration_minutes=request.duration_minutes,
-        group_size=request.group_size or 4,
-        materials=[
-            "Whiteboard and markers",
-            "Concept diagram worksheets",
-            "Colored sticky notes",
-        ],
-        instructions=[
-            "Divide the classroom into small groups of 4.",
-            "Distribute worksheets and sticky notes to each group.",
-            "Ask students to map out the key inputs and outputs of the process.",
-            "Have each group present their diagram to the rest of the class.",
-        ],
-        teacher_role="Facilitator – walk around to guide discussions and clarify misconceptions.",
-        expected_outcome=f"Students actively map and present the core concepts of {request.topic}.",
-        assessment_method="Peer review & Group presentation check.",
+        difficulty=request.difficulty,
+        activity_type="group"
     )
+    activity = await _activity_service.generate_activity(req)
 
     # Save to Supabase materials table
     mat = Material(

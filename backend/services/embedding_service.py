@@ -12,18 +12,31 @@ class EmbeddingService:
     def _lazy_load_model(self):
         if self.model is None:
             try:
-                from sentence_transformers import SentenceTransformer
-                self.model = SentenceTransformer(self.model_name)
+                from google import genai
+                import os
+                api_key = os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
+                if not api_key:
+                    raise EmbeddingError("No GEMINI_API_KEY found")
+                self.model = genai.Client(api_key=api_key)
+                # use text-embedding-004 for text embeddings
+                self.model_name = "text-embedding-004"
             except ImportError:
-                raise EmbeddingError("sentence-transformers not installed")
+                raise EmbeddingError("google-genai not installed")
             except Exception as e:
-                raise EmbeddingError(f"Failed to load embedding model: {str(e)}")
+                raise EmbeddingError(f"Failed to initialize google-genai: {str(e)}")
 
     async def embed_text(self, text: str) -> List[float]:
         self._lazy_load_model()
+        import asyncio
+        loop = asyncio.get_event_loop()
         try:
-            vector = self.model.encode(text)
-            return vector.tolist()
+            response = await loop.run_in_executor(
+                None,
+                lambda: self.model.models.embed_content(
+                    model=self.model_name, contents=text
+                )
+            )
+            return response.embeddings[0].values
         except Exception as e:
             raise EmbeddingError(f"Embedding failed: {str(e)}")
 
@@ -31,9 +44,16 @@ class EmbeddingService:
         if not texts:
             return []
         self._lazy_load_model()
+        import asyncio
+        loop = asyncio.get_event_loop()
         try:
-            vectors = self.model.encode(texts)
-            return vectors.tolist()
+            response = await loop.run_in_executor(
+                None,
+                lambda: self.model.models.embed_content(
+                    model=self.model_name, contents=texts
+                )
+            )
+            return [emb.values for emb in response.embeddings]
         except Exception as e:
             raise EmbeddingError(f"Batch embedding failed: {str(e)}")
 

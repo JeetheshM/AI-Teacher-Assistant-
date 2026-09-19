@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import pdfplumber
 import re
 from typing import List, Dict, Any
 
@@ -10,19 +10,17 @@ class PDFParser:
         """
         pages = []
         try:
-            doc = fitz.open(file_path)
-            for page_num in range(len(doc)):
-                page = doc.load_page(page_num)
-                text = page.get_text("text")
-                cleaned_text = self._clean_text(text)
-                
-                # Only include non-empty pages
-                if cleaned_text:
-                    pages.append({
-                        "page_number": page_num + 1,  # 1-indexed page numbers
-                        "text": cleaned_text
-                    })
-            doc.close()
+            with pdfplumber.open(file_path) as pdf:
+                for i, page in enumerate(pdf.pages):
+                    text = page.extract_text() or ""
+                    cleaned_text = self._clean_text(text)
+                    
+                    # Only include non-empty pages
+                    if cleaned_text:
+                        pages.append({
+                            "page_number": i + 1,  # 1-indexed page numbers
+                            "text": cleaned_text
+                        })
         except Exception as e:
             raise Exception(f"Failed to process PDF: {str(e)}")
             

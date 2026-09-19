@@ -9,3 +9,4 @@ pdfplumber
 reportlab
 python-multipart
 google-genai
+numpy

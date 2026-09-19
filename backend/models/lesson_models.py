@@ -38,6 +38,10 @@ class LessonGenerationRequest(BaseModel):
         default_factory=list,
         description="Optional list of retrieved curriculum excerpts from RAG"
     )
+    document_id: Optional[str] = Field(
+        default=None,
+        description="ID of the uploaded document to use for RAG context retrieval"
+    )
 
     @field_validator("subject", "topic", "learning_objective")
     @classmethod

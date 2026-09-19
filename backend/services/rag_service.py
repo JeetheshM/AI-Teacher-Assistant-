@@ -138,3 +138,10 @@ class RAGService:
             for item in response.chunks
         ]
 
+
+# Global instances for sharing between routers
+global_embedding_service = EmbeddingService()
+global_vector_store = VectorStore()
+global_rag_service = RAGService(embedding_service=global_embedding_service, vector_store=global_vector_store)
+
+
