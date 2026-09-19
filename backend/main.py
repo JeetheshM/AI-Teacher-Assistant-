@@ -1,3 +1,10 @@
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database.db import engine, Base
@@ -26,4 +33,9 @@ app.include_router(documents.router, prefix="/api/documents", tags=["Documents"]
 
 @app.get("/")
 def read_root():
-    return {"message": "TeachMate AI Backend is running with integrated AI modules!"}
+    return {"status": "ok", "message": "TeachMate AI Backend is running with integrated AI modules!"}
+
+@app.get("/health")
+@app.get("/api/health")
+def health_check():
+    return {"status": "ok", "service": "TeachMate AI Master Backend"}
